@@ -1,12 +1,15 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDownCircle, ChevronRight, Download, MapPin } from 'lucide-react';
 import Section from './ui/Section';
-import { RESUME_URL } from '../constants';
+import { RESUME_URL_FR } from '../constants';
 import { useLanguage } from './LanguageContext';
+import ResumeModal from './ui/ResumeModal';
 
 const Hero: React.FC = () => {
   const { t, language } = useLanguage();
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   const handleScrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -23,7 +26,17 @@ const Hero: React.FC = () => {
     }
   };
 
+  const handleResumeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (language === 'fr') {
+      window.open(RESUME_URL_FR, '_blank');
+    } else {
+      setIsResumeModalOpen(true);
+    }
+  };
+
   return (
+    <>
     <Section id="home" className="min-h-[90vh] flex items-center pt-28 md:pt-20 relative overflow-hidden">
       {/* Floating Elements (Subtle) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 md:opacity-60">
@@ -71,9 +84,8 @@ const Hero: React.FC = () => {
               {t.hero.cta_work} <ChevronRight size={20} />
             </a>
             <a 
-              href={RESUME_URL} 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#" 
+              onClick={handleResumeClick}
               className="bg-white hover:bg-gray-50 text-dark font-bold px-6 py-3 md:px-8 md:py-4 border-2 border-dark shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all flex items-center justify-center gap-2"
             >
               <Download size={20} />
@@ -136,6 +148,8 @@ const Hero: React.FC = () => {
         <ArrowDownCircle size={24} />
       </motion.div>
     </Section>
+    <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />
+    </>
   );
 };
 

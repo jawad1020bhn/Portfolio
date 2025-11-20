@@ -1,13 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
-import { RESUME_URL } from '../constants';
+import { RESUME_URL_FR } from '../constants';
 import { Menu, X, Download, MessageSquare, Languages } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
+import ResumeModal from './ui/ResumeModal';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
@@ -18,6 +20,15 @@ const Navbar: React.FC = () => {
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'fr' : 'en');
+  };
+
+  const handleResumeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (language === 'fr') {
+      window.open(RESUME_URL_FR, '_blank');
+    } else {
+      setIsResumeModalOpen(true);
+    }
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -46,6 +57,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
+    <>
     <nav 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/95 backdrop-blur-sm border-b-4 border-dark py-2' : 'bg-transparent py-4 md:py-6'
@@ -90,9 +102,8 @@ const Navbar: React.FC = () => {
              </button>
 
              <a 
-              href={RESUME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              onClick={handleResumeClick}
               className="bg-white text-dark font-bold font-mono px-4 py-2 border-2 border-dark shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all flex items-center gap-2"
             >
               <Download size={16} />
@@ -152,7 +163,8 @@ const Navbar: React.FC = () => {
             
             <div className="flex flex-col gap-4 mt-8">
               <a 
-                href={RESUME_URL}
+                href="#"
+                onClick={handleResumeClick}
                 className="bg-white text-dark text-center font-bold font-mono text-lg px-6 py-4 border-2 border-dark shadow-neo active:translate-y-1 active:shadow-none transition-all flex justify-center items-center gap-2"
               >
                 <Download size={20} /> {language === 'en' ? 'Get Resume' : 'Télécharger CV'}
@@ -169,6 +181,8 @@ const Navbar: React.FC = () => {
         )}
       </AnimatePresence>
     </nav>
+    <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />
+    </>
   );
 };
 

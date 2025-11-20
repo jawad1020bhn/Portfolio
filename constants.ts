@@ -1,7 +1,8 @@
 
 import { Project, Experience, Skill, NavItem } from './types';
 
-export const RESUME_URL = "/resume.pdf"; 
+export const RESUME_URL_EN = "https://drive.google.com/file/d/1RnwGYbGDn65ABFtUz_G93a6rcrcG2zUd/view?usp=drive_link"; 
+export const RESUME_URL_FR = "https://drive.google.com/file/d/1bFrePWWmCBG55RvEDKIjcbFloc6YXjYY/view?usp=drive_link";
 
 export type Language = 'en' | 'fr';
 
@@ -121,31 +122,33 @@ const PROJECTS_EN: Project[] = [
   },
   {
     title: 'DOL Motor Control System',
-    subtitle: 'Industry 4.0 Testbed',
+    subtitle: 'IIoT Research Testbed',
     category: 'Research',
-    status: 'Prototype',
-    shortDescription: 'Direct-On-Line starter control system with advanced predictive maintenance and IIoT capabilities for TIA Portal.',
-    fullDescription: 'In order to try and test IIoT techs, I built this testbed. It upgrades standard legacy hardware with advanced mathematical models directly on the PLC to predict failures before they happen.',
-    tags: ['TIA Portal', 'Predictive Maint', 'IIoT', 'S7-1515'],
+    status: 'Research Prototype',
+    shortDescription: 'An experimental testbed using vibration and thermal sensors to implement predictive maintenance on a standard DOL motor.',
+    fullDescription: 'THE VISION\nI took the simplest actuator in the industry—the DOL Motor—and decided to treat it like a critical IIoT asset. The purpose is to test advanced capabilities by implementing full condition monitoring using Vibration and Thermal sensors.\n\nTHE ENGINEERING\nThis goes beyond simple logic. I am building Mathematical Models to interpret sensor data directly in SCL. It involves deriving algorithms for vibration analysis and heat dissipation to detect anomalies before they become failures.\n\nSTATUS\nThis is an active research project, not a final product. It serves as my personal testbed for experimenting with new predictive maintenance theories and sensor fusion techniques.',
+    tags: ['IIoT', 'Predictive Maintenance', 'Sensors', 'Math Models'],
     specs: [
-      { label: 'Controller', value: 'Siemens S7-1515-2 PN' },
-      { label: 'Hardware', value: '3-phase DOL contactors, CTs, PT100' },
-      { label: 'Sensors', value: 'Vibration, Temperature, Current' }
+      { label: 'Asset Type', value: 'Direct-On-Line (DOL) Motor' },
+      { label: 'Sensors', value: 'Vibration (Accel), Thermal (RTD)' },
+      { label: 'Focus Area', value: 'Mathematical Modeling & Anomaly Detection' },
+      { label: 'Platform', value: 'Siemens S7-1500 / Edge' }
     ],
     features: [
       {
-        title: 'Advanced Features',
+        title: 'Research Focus',
         items: [
-          'Condition monitoring (Voltage, Current, Temp, Vibration)',
-          'Predictive maintenance algorithms (I²t, RUL)',
-          'Statistical quality monitoring'
+          'Vibration Analysis: Developing algorithms to detect mechanical wear patterns.',
+          'Thermal Modeling: Correlating current draw with temperature rise (I²t) vs actual sensor data.',
+          'Sensor Fusion: Combining multiple data points to reduce false positives.'
         ]
       }
     ],
     architecture: [
-      '16 Control Module FBs (FB_2110-2540)',
-      'PackML Phase 1 Utility Functions',
-      'Edge device aggregation without full cloud dependency'
+      'Sensor Data Acquisition Layer',
+      'Mathematical Modeling Block (SCL)',
+      'Predictive Logic Engine',
+      'Dashboard / Monitoring Interface'
     ]
   },
   {
@@ -231,31 +234,33 @@ const PROJECTS_FR: Project[] = [
   },
   {
     title: 'Contrôle Moteur DOL',
-    subtitle: 'Banc d\'essai Industrie 4.0',
+    subtitle: 'Banc d\'essai Recherche IIoT',
     category: 'Research',
-    status: 'Prototype',
-    shortDescription: 'Système de démarrage direct avec maintenance prédictive avancée et capacités IIoT pour TIA Portal.',
-    fullDescription: 'Pour tester les technologies IIoT, j\'ai construit ce banc d\'essai. Il modernise le matériel standard avec des modèles mathématiques avancés directement sur l\'API pour prédire les pannes avant qu\'elles ne surviennent.',
-    tags: ['TIA Portal', 'Maintenance Prédictive', 'IIoT', 'S7-1515'],
+    status: 'Prototype de Recherche',
+    shortDescription: 'Un banc d\'essai expérimental utilisant des capteurs de vibration et thermiques pour implémenter la maintenance prédictive sur un moteur DOL.',
+    fullDescription: 'LA VISION\nJ\'ai pris l\'actionneur le plus simple de l\'industrie — le moteur DOL — pour le traiter comme un actif IIoT critique. L\'objectif est de tester des capacités avancées en implémentant une surveillance complète via des capteurs de vibration et thermiques.\n\nL\'INGÉNIERIE\nCela va au-delà de la simple logique. Je construis des modèles mathématiques pour interpréter les données des capteurs directement en SCL. Cela implique de dériver des algorithmes pour l\'analyse vibratoire et la dissipation thermique afin de détecter les anomalies avant qu\'elles ne deviennent des pannes.\n\nSTATUT\nCeci est un projet de recherche actif, pas un produit final. Il me sert de banc d\'essai personnel pour expérimenter de nouvelles théories de maintenance prédictive et des techniques de fusion de capteurs.',
+    tags: ['IIoT', 'Maintenance Prédictive', 'Capteurs', 'Modèles Math'],
     specs: [
-      { label: 'Contrôleur', value: 'Siemens S7-1515-2 PN' },
-      { label: 'Matériel', value: 'Contacteurs DOL triphasés, TCs, PT100' },
-      { label: 'Capteurs', value: 'Vibration, Température, Courant' }
+      { label: 'Type d\'Actif', value: 'Moteur Démarrage Direct (DOL)' },
+      { label: 'Capteurs', value: 'Vibration (Accéléro), Thermique (RTD)' },
+      { label: 'Domaine', value: 'Modélisation Math & Détection Anomalies' },
+      { label: 'Plateforme', value: 'Siemens S7-1500 / Edge' }
     ],
     features: [
       {
-        title: 'Fonctionnalités Avancées',
+        title: 'Axes de Recherche',
         items: [
-          'Surveillance d\'état (Tension, Courant, Temp, Vibration)',
-          'Algorithmes de maintenance prédictive (I²t, RUL)',
-          'Surveillance statistique de la qualité'
+          'Analyse Vibratoire : Développement d\'algorithmes pour détecter l\'usure mécanique.',
+          'Modélisation Thermique : Corrélation courant/chauffe (I²t) vs données réelles capteurs.',
+          'Fusion de Capteurs : Combinaison de multiples points de données pour réduire les faux positifs.'
         ]
       }
     ],
     architecture: [
-      '16 FBs Module de Contrôle (FB_2110-2540)',
-      'Fonctions Utilitaires PackML Phase 1',
-      'Agrégation sur appareil Edge sans dépendance cloud totale'
+      'Couche Acquisition Données Capteurs',
+      'Bloc Modélisation Mathématique (SCL)',
+      'Moteur Logique Prédictive',
+      'Tableau de Bord / Interface Surveillance'
     ]
   },
   {
@@ -325,7 +330,7 @@ export const TRANSLATIONS: Record<Language, Content> = {
     hero: {
       location: 'Based in Algeria. Open to work In & Outside Algeria.',
       role: 'Automation & Industrial Computing Engineer.',
-      description: 'Automation Engineer bridging the gap between raw hardware and reliable software. Specialized in S7-1500, STM32 & Process Optimization.',
+      description: 'Automation Engineer bridging the gap between raw hardware and reliable software. Specialized in S7-1500, STM32, and Process Optimization.',
       cta_work: 'See Technical Work',
       cta_cv: 'Download CV',
       core_stack: 'Core Stack',

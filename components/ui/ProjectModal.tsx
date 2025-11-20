@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, FileText, Github, Server, Cpu, Layers } from 'lucide-react';
@@ -102,7 +103,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               
               {/* Main Description */}
               <div>
-                <p className="text-lg md:text-xl font-medium text-zinc-300 leading-relaxed">
+                <p className="text-lg md:text-xl font-medium text-zinc-300 leading-relaxed whitespace-pre-line">
                   {project.fullDescription || project.shortDescription}
                 </p>
               </div>
