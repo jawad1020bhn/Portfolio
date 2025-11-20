@@ -299,17 +299,18 @@ const PROJECTS_FR: Project[] = [
 ];
 
 export const SKILLS_DATA: Skill[] = [
-  { name: 'TIA Portal (SCL, ISA-88)', level: 95, category: 'Automation' },
-  { name: 'STM32 / Embedded C++', level: 90, category: 'Embedded' },
-  { name: 'IIoT & Node-RED (MQTT)', level: 85, category: 'IoT' },
-  { name: 'SCADA / WinCC / HMI', level: 80, category: 'Automation' },
+  { name: 'S7-1500 / ISA-88 / PackML', level: 95, category: 'Automation' },
+  { name: 'STM32 / C++ / Embedded', level: 90, category: 'Embedded' },
+  { name: 'Node-RED / MQTT / IIoT', level: 85, category: 'IoT' },
+  { name: 'WinCC / SCADA / HMI Design', level: 85, category: 'Automation' },
+  { name: 'PID / LQR / Process Control', level: 80, category: 'Research' },
   { name: 'FPGA (VHDL)', level: 70, category: 'Embedded' },
-  { name: 'Python (Analysis)', level: 75, category: 'Full-Stack' },
 ];
 
 export const CERTIFICATES: string[] = [
   'ICS / SCADA Security Fundamentals',
   'Infosec Python Fundamentals',
+  'Introduction to Computer Networks',
   'EF SET English Certificate (C1/B2)'
 ];
 
@@ -324,7 +325,7 @@ export const TRANSLATIONS: Record<Language, Content> = {
     hero: {
       location: 'Based in Algeria. Open to work In & Outside Algeria.',
       role: 'Automation & Industrial Computing Engineer.',
-      description: 'From commissioning VFDs to architecting PackML state machines—I bridge the gap between raw hardware and intelligent control software.',
+      description: 'Automation Engineer bridging the gap between raw hardware and reliable software. Specialized in S7-1500, STM32 & Process Optimization.',
       cta_work: 'See Technical Work',
       cta_cv: 'Download CV',
       core_stack: 'Core Stack',
@@ -364,8 +365,7 @@ export const TRANSLATIONS: Record<Language, Content> = {
           location: "Algeria / Remote",
           description: [
              "Designed and developed complete industrial control system architecture for VFFS packaging machine (Siemens S7-1500).",
-             "Modeled functional modules and implemented PackML state machines.",
-             "Built HMI interfaces and comprehensive diagnostic systems."
+             "Modeled functional modules, implemented state machines (ISA-88/PackML), HMI interface and diagnostic system."
           ],
           tech: ["S7-1500", "ISA-88", "PackML", "HMI Design"]
         },
@@ -408,7 +408,7 @@ export const TRANSLATIONS: Record<Language, Content> = {
     projects: {
       title: "Featured",
       subtitle: "Work",
-      disclaimer: "Some commercial projects are protected by NDA. These case studies focus on the architectural and software challenges solved.",
+      disclaimer: "These projects and case studies focus on the architectural and software challenges solved.",
       github_btn: "GitHub Profile",
       view_code: "View Code",
       read_thesis: "Read Thesis",
@@ -429,11 +429,11 @@ export const TRANSLATIONS: Record<Language, Content> = {
     },
     contact: {
       status: "Open to Work",
-      title_start: "Ready to",
-      title_end: "Collaborate?",
-      desc: "I am currently available for freelance projects or full-time roles. Whether you need a machine programmed or an embedded prototype built, let's talk.",
+      title_start: "Career",
+      title_end: "Opportunities",
+      desc: "I am seeking a full-time engineering role where I can apply my dual expertise in *Industrial Automation* and *Embedded Systems*. Combining *academic rigor* with *hands-on operational experience* (S7-1500, SCADA, Maintenance), I am prepared to tackle complex technical challenges. Ready to integrate into your team and drive *operational excellence*.",
       btn_email: "Send Email",
-      response_time: "I usually respond within 24 hours."
+      response_time: "Responses typically within 24 hours."
     },
     footer: {
       desc: "Designing the nervous systems of modern industry.",
@@ -453,7 +453,7 @@ export const TRANSLATIONS: Record<Language, Content> = {
     hero: {
       location: 'Basé en Algérie. Disponible en Algérie et à l\'étranger.',
       role: 'Ingénieur en Automatisme & Informatique Industrielle.',
-      description: 'De la mise en service de variateurs à l\'architecture de machines PackML—je comble le fossé entre le matériel brut et le logiciel de contrôle intelligent.',
+      description: 'Ingénieur en automatisme comblant le fossé entre le matériel brut et le logiciel fiable. Spécialisé en S7-1500, STM32 & Optimisation de Processus.',
       cta_work: 'Voir Projets',
       cta_cv: 'Télécharger CV',
       core_stack: 'Stack Technique',
@@ -493,8 +493,7 @@ export const TRANSLATIONS: Record<Language, Content> = {
           location: "Algérie / À distance",
           description: [
              "Conception et développement de l'architecture complète du système de contrôle pour machine d'emballage VFFS (Siemens S7-1500).",
-             "Modélisation des modules fonctionnels et implémentation de machines à états PackML.",
-             "Création d'interfaces IHM et d'un système de diagnostic complet."
+             "Modélisation des modules fonctionnels, implémentation machines à états PackML, IHM et système de diagnostic."
           ],
           tech: ["S7-1500", "ISA-88", "PackML", "Design IHM"]
         },
@@ -537,7 +536,7 @@ export const TRANSLATIONS: Record<Language, Content> = {
     projects: {
       title: "Projets",
       subtitle: "Phares",
-      disclaimer: "Certains projets commerciaux sont sous NDA. Ces études de cas se concentrent sur les défis architecturaux et logiciels résolus.",
+      disclaimer: "Ces projets et études de cas se concentrent sur les défis architecturaux et logiciels résolus.",
       github_btn: "Profil GitHub",
       view_code: "Voir le Code",
       read_thesis: "Lire la Thèse",
@@ -558,9 +557,9 @@ export const TRANSLATIONS: Record<Language, Content> = {
     },
     contact: {
       status: "À l'écoute",
-      title_start: "Prêt à",
-      title_end: "Collaborer ?",
-      desc: "Je suis actuellement disponible pour des projets freelance ou des postes à temps plein. Que vous ayez besoin de programmer une machine ou de construire un prototype embarqué, discutons-en.",
+      title_start: "Opportunités",
+      title_end: "de Carrière",
+      desc: "Je recherche un poste d'ingénieur à temps plein pour appliquer ma double expertise en *Automatisme Industriel* et *Systèmes Embarqués*. Alliant *rigueur académique* et *expérience opérationnelle terrain* (S7-1500, SCADA, Maintenance), je suis prêt à relever des défis techniques complexes. Prêt à intégrer votre équipe et piloter l'*excellence opérationnelle*.",
       btn_email: "Envoyer Email",
       response_time: "Je réponds généralement sous 24h."
     },

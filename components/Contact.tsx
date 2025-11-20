@@ -6,6 +6,16 @@ import { useLanguage } from './LanguageContext';
 const Contact: React.FC = () => {
   const { t } = useLanguage();
 
+  const parseDescription = (text: string) => {
+    const parts = text.split('*');
+    return parts.map((part, index) => {
+      if (index % 2 === 1) {
+        return <span key={index} className="text-secondary font-bold">{part}</span>;
+      }
+      return <span key={index}>{part}</span>;
+    });
+  };
+
   return (
     <Section id="contact" className="bg-primary border-t-4 border-dark relative overflow-hidden">
       {/* Background Pattern */}
@@ -29,7 +39,7 @@ const Contact: React.FC = () => {
         </h2>
         
         <p className="text-base md:text-xl text-gray-800 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
-          {t.contact.desc}
+          {parseDescription(t.contact.desc)}
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
