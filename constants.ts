@@ -1,4 +1,5 @@
 
+
 import { Project, Experience, Skill, NavItem } from './types';
 
 export const RESUME_URL_EN = "https://drive.google.com/file/d/1RnwGYbGDn65ABFtUz_G93a6rcrcG2zUd/view?usp=drive_link"; 
@@ -23,6 +24,7 @@ interface Content {
     title: string;
     p1: string;
     p2: string;
+    p3: string;
     hands_on_title: string;
     hands_on_desc: string;
     operator_title: string;
@@ -82,9 +84,9 @@ interface Content {
 const PROJECTS_EN: Project[] = [
   {
     title: 'Intermittent Motion VFFS System',
-    subtitle: 'Commercial Product',
+    subtitle: 'Commercial',
     category: 'Automation',
-    status: 'In Progress (Commercial)',
+    status: 'In Progress',
     shortDescription: 'A complete commercial control architecture for a Vertical Form-Fill-Seal packaging machine, built on Siemens TIA Portal with S7-1500 & ISA-88.',
     fullDescription: 'Commercial Product Overview, software only. This project involves the complete software engineering for a commercial packaging machine. The focus is on modularity and "Industry 4.0" readiness, ensuring the machine is not just a mechanical tool but a data-generating asset.',
     tags: ['Siemens S7-1500', 'ISA-88', 'PackML', 'SCL'],
@@ -122,7 +124,6 @@ const PROJECTS_EN: Project[] = [
   },
   {
     title: 'DOL Motor Control System',
-    subtitle: 'IIoT Research Testbed',
     category: 'Research',
     status: 'Research Prototype',
     shortDescription: 'An experimental testbed using vibration and thermal sensors to implement predictive maintenance on a standard DOL motor.',
@@ -180,7 +181,6 @@ const PROJECTS_EN: Project[] = [
   },
   {
     title: 'Pneumatic Cylinder ML Model',
-    subtitle: 'TIA Portal Integration',
     category: 'Automation',
     status: 'Completed',
     shortDescription: 'Machine Learning model integration within TIA Portal to predict pneumatic cylinder anomalies.',
@@ -194,9 +194,9 @@ const PROJECTS_EN: Project[] = [
 const PROJECTS_FR: Project[] = [
   {
     title: 'Système VFFS à Mouvement Intermittent',
-    subtitle: 'Produit Commercial',
+    subtitle: 'Commercial',
     category: 'Automation',
-    status: 'En Cours (Commercial)',
+    status: 'En Cours',
     shortDescription: 'Architecture de contrôle complète pour une machine d\'emballage verticale, construite sur Siemens TIA Portal avec S7-1500 & ISA-88.',
     fullDescription: 'Aperçu du produit commercial, logiciel uniquement. Ce projet implique l\'ingénierie logicielle complète pour une machine d\'emballage commerciale. L\'accent est mis sur la modularité et la préparation "Industrie 4.0", garantissant que la machine n\'est pas seulement un outil mécanique mais un actif générant des données.',
     tags: ['Siemens S7-1500', 'ISA-88', 'PackML', 'SCL'],
@@ -234,7 +234,6 @@ const PROJECTS_FR: Project[] = [
   },
   {
     title: 'Contrôle Moteur DOL',
-    subtitle: 'Banc d\'essai Recherche IIoT',
     category: 'Research',
     status: 'Prototype de Recherche',
     shortDescription: 'Un banc d\'essai expérimental utilisant des capteurs de vibration et thermiques pour implémenter la maintenance prédictive sur un moteur DOL.',
@@ -292,7 +291,6 @@ const PROJECTS_FR: Project[] = [
   },
   {
     title: 'Modèle ML pour Vérin Pneumatique',
-    subtitle: 'Intégration TIA Portal',
     category: 'Automation',
     status: 'Terminé',
     shortDescription: 'Intégration d\'un modèle de Machine Learning dans TIA Portal pour prédire les anomalies des vérins pneumatiques.',
@@ -339,9 +337,10 @@ export const TRANSLATIONS: Record<Language, Content> = {
     },
     about: {
       badge: 'MY BACKGROUND',
-      title: "I've worked as a machine operator, so I write better code.",
-      p1: "Before I was designing control architectures, I was on the factory floor monitoring production lines. I know what it feels like when a machine stops and the error message is confusing.",
-      p2: "My approach is simple: I write clean, structured code (mostly SCL) that is easy to troubleshoot and maintain.",
+      title: "I've worked as a machine operator, so I write better code. (Just kidding.)",
+      p1: "...Actually, I’m only half-joking. Before I designed control architectures, I was on the factory floor monitoring production lines. I know exactly what it feels like when a machine stops, the quota is slipping, and the HMI displays a confusing error message.",
+      p2: "That experience changed how I engineer. While my academic background gave me the logic and standards, my operator experience gave me the empathy. I don't just write code for the processor; I write it for the human who has to troubleshoot it.",
+      p3: "I am an Automation Engineer looking for my first major role, ready to bridge the gap between high-level code and floor-level reality.",
       hands_on_title: "Hands-On Experience",
       hands_on_desc: "Wiring cabinets, sensor calibration, and VFD commissioning.",
       operator_title: "Operator Mindset",
@@ -467,9 +466,10 @@ export const TRANSLATIONS: Record<Language, Content> = {
     },
     about: {
       badge: 'MON PARCOURS',
-      title: "J'ai travaillé comme opérateur, donc je code mieux.",
-      p1: "Avant de concevoir des architectures de contrôle, j'étais sur le terrain à surveiller les lignes de production. Je sais ce que c'est quand une machine s'arrête et que le message d'erreur est confus.",
-      p2: "Mon approche est simple : j'écris un code propre et structuré (principalement SCL) facile à dépanner et à maintenir.",
+      title: "J’ai été opérateur machine, donc je code mieux. (Enfin… presque.)",
+      p1: "En vrai, je ne plaisante qu’à moitié. Avant de concevoir des architectures de contrôle, j’étais sur le terrain, à surveiller les lignes de production. Je sais exactement ce qu’on ressent quand une machine s’arrête, que les quotas dérapent et que l’IHM affiche un message d’erreur incompréhensible.",
+      p2: "Cette expérience a transformé ma façon de concevoir. Si mes études m’ont apporté la logique et les normes, mon passage en production m’a appris l’empathie. Je n’écris pas du code pour le processeur, mais pour l’humain qui devra le déboguer.",
+      p3: "Je suis ingénieur en automatisme à la recherche de mon premier grand poste, prêt à faire le lien entre le code haut niveau et la réalité du terrain.",
       hands_on_title: "Expérience Terrain",
       hands_on_desc: "Câblage d'armoires, calibration de capteurs et mise en service.",
       operator_title: "Esprit Opérateur",

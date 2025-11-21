@@ -25,6 +25,9 @@ const About: React.FC = () => {
           <p className="text-base md:text-lg leading-relaxed text-gray-700">
             {t.about.p2}
           </p>
+          <p className="text-base md:text-lg leading-relaxed text-dark font-medium">
+            {t.about.p3}
+          </p>
 
           {/* Value Props - "Safe Bets" */}
           <div className="grid grid-cols-1 gap-4 mt-4">
