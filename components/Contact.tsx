@@ -14,13 +14,19 @@ const Contact: React.FC = () => {
         return (
           <span 
             key={index} 
-            className="font-bold text-dark bg-primary/25 px-1 rounded-sm border-b-2 border-primary box-decoration-clone hover:bg-primary/50 transition-colors cursor-default"
+            className="inline-block relative group mx-1.5 align-middle"
           >
-            {part}
+             {/* Shadow Block */}
+             <span className="absolute inset-0 bg-primary translate-x-1 translate-y-1 border-2 border-dark transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"></span>
+             
+             {/* Text Block */}
+             <span className="relative block bg-dark text-white px-3 py-1 border-2 border-dark font-mono text-sm md:text-base font-bold transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5">
+               {part}
+             </span>
           </span>
         );
       }
-      return <span key={index}>{part}</span>;
+      return <span key={index} className="relative z-10 align-middle">{part}</span>;
     });
   };
 
