@@ -1,6 +1,5 @@
 
-
-import { Project, Experience, Skill, NavItem } from './types';
+import { Project, Experience, SkillCategory, Certificate, NavItem } from './types';
 
 export const RESUME_URL_EN = "https://drive.google.com/file/d/1RnwGYbGDn65ABFtUz_G93a6rcrcG2zUd/view?usp=drive_link"; 
 export const RESUME_URL_FR = "https://drive.google.com/file/d/1bFrePWWmCBG55RvEDKIjcbFloc6YXjYY/view?usp=drive_link";
@@ -363,20 +362,45 @@ const PROJECTS_FR: Project[] = [
   }
 ];
 
-export const SKILLS_DATA: Skill[] = [
-  { name: 'S7-1500 / ISA-88 / PackML', level: 95, category: 'Automation' },
-  { name: 'STM32 / C++ / Embedded', level: 90, category: 'Embedded' },
-  { name: 'Node-RED / MQTT / IIoT', level: 85, category: 'IoT' },
-  { name: 'WinCC / SCADA / HMI Design', level: 85, category: 'Automation' },
-  { name: 'PID / LQR / Process Control', level: 80, category: 'Research' },
-  { name: 'FPGA (VHDL)', level: 70, category: 'Embedded' },
+export const SKILLS_DATA: SkillCategory[] = [
+  {
+    title: "Automation & Programming",
+    skills: [
+      "PLC Programming (SCL, LAD, ISA-88, PackML)",
+      "Configuration VFDs / Motor Control / Sensors"
+    ]
+  },
+  {
+    title: "Embedded Systems",
+    skills: [
+      "C/C++", "Python", "FPGA (VHDL)", 
+      "Microcontrollers (STM32)", 
+      "IIoT Dashboards (Node-RED)"
+    ]
+  },
+  {
+    title: "SCADA & Control Systems",
+    skills: [
+      "HMI creation", "WinCC", "FactoryIO", 
+      "SCADA systems design", 
+      "PID regulation", "Optimal LQR control"
+    ]
+  },
+  {
+    title: "Industrial Networks & Communication",
+    skills: [
+      "Profinet", "MQTT", 
+      "Industrial IoT protocols", 
+      "AutoCAD Electrical"
+    ]
+  }
 ];
 
-export const CERTIFICATES: string[] = [
-  'ICS / SCADA Security Fundamentals',
-  'Infosec Python Fundamentals',
-  'Introduction to Computer Networks',
-  'EF SET English Certificate (C1/B2)'
+export const CERTIFICATES: Certificate[] = [
+  { name: 'ICS / SCADA Security Fundamentals', url: '#' },
+  { name: 'Infosec Python Fundamentals', url: '#' },
+  { name: 'Introduction to Computer Networks', url: '#' },
+  { name: 'EF SET English Certificate (C1/B2)', url: '#' }
 ];
 
 export const TRANSLATIONS: Record<Language, Content> = {

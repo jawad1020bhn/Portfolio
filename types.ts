@@ -30,10 +30,14 @@ export interface Experience {
   tech: string[];
 }
 
-export interface Skill {
+export interface SkillCategory {
+  title: string;
+  skills: string[];
+}
+
+export interface Certificate {
   name: string;
-  level: number; // 0-100
-  category: string;
+  url: string;
 }
 
 export interface NavItem {

@@ -1,10 +1,9 @@
 
-
 import React from 'react';
 import Section from './ui/Section';
 import { SKILLS_DATA, CERTIFICATES } from '../constants';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Brain, Search, Terminal, FileText, Users, Eye, Lightbulb, Settings, Cpu, Network, Layers } from 'lucide-react';
+import { CheckCircle2, Brain, Search, Terminal, FileText, Users, Eye, Lightbulb, Settings, Cpu, Network, Layers, ExternalLink } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 const Skills: React.FC = () => {
@@ -20,29 +19,18 @@ const Skills: React.FC = () => {
     return <Terminal size={18} />;
   };
 
-  const getCategoryColor = (cat: string) => {
-    switch(cat) {
-      case 'Automation': return 'text-primary border-primary';
-      case 'Embedded': return 'text-secondary border-secondary';
-      case 'IoT': return 'text-accent border-accent';
-      default: return 'text-gray-500 border-gray-500';
-    }
+  const getCategoryIcon = (title: string) => {
+    if (title.includes('Automation')) return <Settings size={20} />;
+    if (title.includes('Embedded')) return <Cpu size={20} />;
+    if (title.includes('SCADA')) return <Layers size={20} />;
+    return <Network size={20} />;
   };
 
-  const getCategoryIcon = (cat: string) => {
-    switch(cat) {
-      case 'Automation': return <Settings size={12} />;
-      case 'Embedded': return <Cpu size={12} />;
-      case 'IoT': return <Network size={12} />;
-      default: return <Layers size={12} />;
-    }
-  };
-
-  const getProficiencyLabel = (level: number) => {
-    if (level >= 90) return 'SYSTEM EXPERT';
-    if (level >= 80) return 'ADVANCED';
-    if (level >= 70) return 'PROFICIENT';
-    return 'COMPETENT';
+  const getCategoryColor = (title: string) => {
+     if (title.includes('Automation')) return 'text-primary';
+     if (title.includes('Embedded')) return 'text-secondary';
+     if (title.includes('SCADA')) return 'text-accent';
+     return 'text-blue-400';
   };
 
   return (
@@ -58,59 +46,39 @@ const Skills: React.FC = () => {
             {t.skills.tech_title}
           </h2>
           
-          <div className="grid sm:grid-cols-2 gap-4">
-            {SKILLS_DATA.map((skill, index) => {
-              const segments = 5;
-              const activeSegments = Math.ceil((skill.level / 100) * segments);
-              const colorClass = skill.category === 'Automation' ? 'bg-primary' : 
-                                 skill.category === 'Embedded' ? 'bg-secondary' : 
-                                 skill.category === 'IoT' ? 'bg-accent' : 'bg-gray-400';
+          <div className="grid gap-6">
+            {SKILLS_DATA.map((category, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white border-2 border-dark p-6 shadow-neo-sm hover:shadow-neo transition-all relative group"
+              >
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-4 border-b-2 border-dashed border-gray-200 pb-3">
+                   <div className={`${getCategoryColor(category.title)}`}>
+                     {getCategoryIcon(category.title)}
+                   </div>
+                   <h3 className="font-bold text-lg md:text-xl uppercase tracking-tight text-dark">
+                     {category.title}
+                   </h3>
+                </div>
 
-              return (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white border-2 border-dark p-4 shadow-neo-sm hover:shadow-neo transition-all relative overflow-hidden group"
-                >
-                  {/* Decorative corner */}
-                  <div className="absolute top-0 right-0 w-8 h-8 bg-gray-50 -translate-y-1/2 translate-x-1/2 rotate-45 border border-dark/20"></div>
-
-                  <div className="flex justify-between items-start mb-3">
-                    <div className={`text-[10px] font-bold font-mono px-2 py-0.5 border rounded-sm flex items-center gap-1 uppercase tracking-wider ${getCategoryColor(skill.category)}`}>
-                       {getCategoryIcon(skill.category)} {skill.category}
-                    </div>
-                    <span className="font-mono font-bold text-lg text-dark/30 group-hover:text-dark transition-colors">
-                      {skill.level}%
-                    </span>
-                  </div>
-
-                  <h3 className="font-bold text-dark text-lg leading-tight mb-4 min-h-[3.5rem] flex items-center">
-                    {skill.name}
-                  </h3>
-
-                  {/* Segmented Bar */}
-                  <div className="flex gap-1.5 mb-3">
-                    {[...Array(segments)].map((_, i) => (
-                       <div 
-                         key={i} 
-                         className={`h-2.5 flex-1 border border-dark/10 skew-x-[-12deg] transition-all duration-500 ${i < activeSegments ? colorClass : 'bg-gray-100'}`}
-                       />
-                    ))}
-                  </div>
-
-                  <div className="flex justify-between items-end">
-                     <span className="text-[9px] font-mono text-gray-400 uppercase">SYS.ID: 0{index+1}</span>
-                     <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">
-                       STATUS: <span className="text-dark">{getProficiencyLabel(skill.level)}</span>
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
+                {/* Skills List */}
+                <div className="flex flex-wrap gap-2">
+                   {category.skills.map((skill, i) => (
+                     <span 
+                       key={i} 
+                       className="font-mono text-sm font-bold bg-gray-50 text-dark border border-gray-200 px-3 py-1.5 hover:border-dark hover:bg-white transition-colors cursor-default"
+                     >
+                       {skill}
+                     </span>
+                   ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Soft Skills */}
@@ -157,20 +125,26 @@ const Skills: React.FC = () => {
                      style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '12px 12px' }}>
                 </div>
                 
-                <div className="relative z-10 space-y-6">
+                <div className="relative z-10 space-y-4">
                   {CERTIFICATES.map((cert, index) => (
-                    <motion.div 
+                    <motion.a 
                       key={index}
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       initial={{ x: 20, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex gap-4 items-start group"
+                      className="flex gap-4 items-start group hover:bg-white/5 p-2 rounded-sm -mx-2 transition-colors cursor-pointer"
                     >
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-sm bg-accent group-hover:bg-primary transition-colors"></div>
-                      <p className="font-mono font-bold text-sm leading-relaxed border-b border-white/10 pb-2 w-full group-hover:text-accent transition-colors">
-                        {cert}
-                      </p>
-                    </motion.div>
+                      <div className="mt-1.5 w-1.5 h-1.5 rounded-sm bg-accent group-hover:bg-primary transition-colors shrink-0"></div>
+                      <div className="flex-1">
+                        <p className="font-mono font-bold text-sm leading-relaxed border-b border-white/10 pb-2 w-full group-hover:text-accent transition-colors flex items-center gap-2">
+                          {cert.name}
+                          <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </p>
+                      </div>
+                    </motion.a>
                   ))}
                 </div>
                 
