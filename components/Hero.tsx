@@ -111,9 +111,9 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Image / Visual - Warmth Indicator */}
+        {/* Image / Visual - Warmth Indicator - HIDDEN ON MOBILE */}
         <motion.div 
-          className="md:col-span-5 flex justify-center md:justify-end mt-8 md:mt-0"
+          className="hidden md:flex md:col-span-5 justify-center md:justify-end mt-8 md:mt-0"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}

@@ -76,8 +76,8 @@ const Projects: React.FC = () => {
               onClick={() => setSelectedProject(project)}
               className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
             >
-              {/* Status Badge */}
-              <div className="absolute top-4 right-4 z-20">
+              {/* Status Badge - Hidden on mobile */}
+              <div className="hidden md:block absolute top-4 right-4 z-20">
                 <span className={`px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-wider border backdrop-blur-sm ${getStatusColor(project.status)}`}>
                   {project.status}
                 </span>
