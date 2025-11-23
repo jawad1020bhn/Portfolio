@@ -180,13 +180,45 @@ const PROJECTS_EN: Project[] = [
     tags: ['Bottling', 'Legacy', 'Filling Logic'],
   },
   {
-    title: 'Pneumatic Cylinder ML Model',
+    title: 'PLC-Resident Predictive Maintenance',
+    subtitle: 'Technical Documentation',
     category: 'Automation',
     status: 'Completed',
-    shortDescription: 'Machine Learning model integration within TIA Portal to predict pneumatic cylinder anomalies.',
-    tags: ['Machine Learning', 'TIA Portal', 'Python'],
+    shortDescription: 'A lightweight, deterministric predictive maintenance system for pneumatic cylinders & motors running entirely on S7-1500 (No PC/Cloud required).',
+    fullDescription: 'PROJECT SCOPE\nDesigned a complete PLC-resident predictive maintenance architecture running entirely on a Siemens S7-1500 (1515-2 PN). The system monitors 4 pneumatic cylinders and 3 electric motors without external cloud or server dependencies.\n\nTHE ENGINEERING\nInstead of heavy black-box ML models, I implemented a deterministic "Statistical Threshold + CUSUM Hybrid" approach. This involves running Welford\'s algorithm for online variance and CUSUM for drift detection directly within the PLC scan cycle (OB35).\n\nKEY OUTCOMES\n- Detects gradual wear (internal seal leaks, bearing degradation) weeks before failure.\n- Optimization: <10% CPU load, <5 MB memory usage.\n- Standards: Aligned with ISA-88 hierarchy for modularity.',
+    tags: ['S7-1500', 'SCL', 'CUSUM', 'Predictive Maintenance', 'ISA-88'],
+    specs: [
+      { label: 'Platform', value: 'Siemens S7-1500 (CPU 1515-2 PN)' },
+      { label: 'Scope', value: '4 Pneumatic Cylinders, 3 Motors' },
+      { label: 'Algorithm', value: 'Statistical Threshold + CUSUM' },
+      { label: 'Scan Time', value: '< 10ms (Real-Time)' }
+    ],
+    features: [
+      {
+        title: 'Algorithmic Core',
+        items: [
+          'Welford’s Algorithm for numerically stable variance calculation.',
+          'CUSUM (Cumulative Sum) for detecting micro-drift trends (leaks/wear).',
+          'EMA (Exponential Moving Average) for signal noise reduction.'
+        ]
+      },
+      {
+        title: 'Smart Architecture',
+        items: [
+          'Self-contained "Smart Component" Function Blocks (FB_SmartCylinder).',
+          'Automated Baseline Calibration sequences.',
+          'Circular Buffer Alarm Logging (50 events).'
+        ]
+      }
+    ],
+    architecture: [
+      'OB1: Real-Time Control Cycle',
+      'OB35: Cyclic Interrupt (Analytics Layer)',
+      'FB_SmartCylinder / FB_SmartMotor (Equipment Modules)',
+      'FB_OnlineStats_Welford & FB_CUSUM (Analytics)'
+    ],
     links: [
-      { label: 'View Code', url: 'https://github.com', type: 'github' }
+      { label: 'View Documentation', url: 'https://github.com', type: 'github' }
     ]
   }
 ];
@@ -290,13 +322,45 @@ const PROJECTS_FR: Project[] = [
     tags: ['Embouteillage', 'Legacy', 'Logique de Remplissage'],
   },
   {
-    title: 'Modèle ML pour Vérin Pneumatique',
+    title: 'Maintenance Prédictive Embarquée (PLC)',
+    subtitle: 'Documentation Technique',
     category: 'Automation',
     status: 'Terminé',
-    shortDescription: 'Intégration d\'un modèle de Machine Learning dans TIA Portal pour prédire les anomalies des vérins pneumatiques.',
-    tags: ['Machine Learning', 'TIA Portal', 'Python'],
+    shortDescription: 'Système de maintenance prédictive déterministe pour vérins pneumatiques et moteurs exécuté entièrement sur S7-1500 (Sans PC/Cloud).',
+    fullDescription: 'PORTÉE DU PROJET\nConception d\'une architecture complète de maintenance prédictive résidant sur un automate Siemens S7-1500 (1515-2 PN). Le système surveille 4 vérins pneumatiques et 3 moteurs électriques sans dépendances externes (Cloud/Serveur).\n\nL\'INGÉNIERIE\nAu lieu de modèles ML "boîte noire", j\'ai implémenté une approche déterministe hybride "Seuil Statistique + CUSUM". Cela implique l\'exécution de l\'algorithme de Welford pour la variance en ligne et CUSUM pour la détection de dérive directement dans le cycle de scan de l\'API (OB35).\n\nRÉSULTATS CLÉS\n- Détection des usures graduelles (fuites joints, dégradation roulements) des semaines avant la panne.\n- Optimisation : <10% charge CPU, <5 Mo mémoire.\n- Standards : Aligné avec la hiérarchie ISA-88.',
+    tags: ['S7-1500', 'SCL', 'CUSUM', 'Maintenance Prédictive', 'ISA-88'],
+    specs: [
+      { label: 'Plateforme', value: 'Siemens S7-1500 (CPU 1515-2 PN)' },
+      { label: 'Portée', value: '4 Vérins Pneumatiques, 3 Moteurs' },
+      { label: 'Algorithme', value: 'Seuil Statistique + CUSUM' },
+      { label: 'Temps de Scan', value: '< 10ms (Temps Réel)' }
+    ],
+    features: [
+      {
+        title: 'Cœur Algorithmique',
+        items: [
+          'Algorithme de Welford pour un calcul de variance stable.',
+          'CUSUM (Somme Cumulative) pour détecter les micro-dérives (fuites/usure).',
+          'EMA (Moyenne Mobile Exponentielle) pour la réduction du bruit.'
+        ]
+      },
+      {
+        title: 'Architecture Intelligente',
+        items: [
+          'Blocs Fonctionnels autonomes "Smart Component" (FB_SmartCylinder).',
+          'Séquences de calibration automatique des bases (Baseline).',
+          'Journalisation d\'alarmes en tampon circulaire (50 événements).'
+        ]
+      }
+    ],
+    architecture: [
+      'OB1 : Cycle de Contrôle Temps Réel',
+      'OB35 : Interruption Cyclique (Couche Analytique)',
+      'FB_SmartCylinder / FB_SmartMotor (Modules Équipement)',
+      'FB_OnlineStats_Welford & FB_CUSUM (Analytique)'
+    ],
     links: [
-      { label: 'Voir le Code', url: 'https://github.com', type: 'github' }
+      { label: 'Voir Documentation', url: 'https://github.com', type: 'github' }
     ]
   }
 ];
