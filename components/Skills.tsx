@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Section from './ui/Section';
 import { SKILLS_DATA, CERTIFICATES } from '../constants';
@@ -55,9 +56,23 @@ const Skills: React.FC = () => {
              <h3 className="font-bold text-xl mb-6 uppercase tracking-tight flex items-center gap-2">
                <Brain className="text-secondary" /> {t.skills.soft_title}
              </h3>
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+             <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               transition={{ staggerChildren: 0.1 }}
+               className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+             >
                {t.skills.soft_list.map((skill, index) => (
-                 <div key={index} className="border-2 border-dark bg-paper p-3 shadow-neo-sm hover:translate-y-[-2px] transition-transform flex items-start gap-3">
+                 <motion.div 
+                   key={index}
+                   variants={{
+                     hidden: { opacity: 0, y: 10 },
+                     visible: { opacity: 1, y: 0 }
+                   }}
+                   whileHover={{ scale: 1.05, rotate: 1 }}
+                   className="border-2 border-dark bg-paper p-3 shadow-neo-sm hover:translate-y-[-2px] transition-transform flex items-start gap-3"
+                 >
                    <div className="mt-1 text-dark">
                      {getSkillIcon(skill.label)}
                    </div>
@@ -65,9 +80,9 @@ const Skills: React.FC = () => {
                      <h4 className="font-bold text-sm md:text-base leading-tight">{skill.label}</h4>
                      <p className="text-xs text-gray-600 font-mono mt-1">{skill.desc}</p>
                    </div>
-                 </div>
+                 </motion.div>
                ))}
-             </div>
+             </motion.div>
           </div>
         </div>
 
@@ -83,6 +98,10 @@ const Skills: React.FC = () => {
               <motion.div 
                 key={index}
                 whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
                 className="bg-paper p-3 md:p-4 border-2 border-dark flex items-start gap-3 md:gap-4"
               >
                 <CheckCircle2 className="text-green-600 shrink-0 mt-0.5" size={20} />

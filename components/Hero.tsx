@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDownCircle, ChevronRight, Download, MapPin } from 'lucide-react';
@@ -76,21 +77,25 @@ const Hero: React.FC = () => {
 
           {/* 3. Action (Low Risk) */}
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <a 
+            <motion.a 
               href="#projects" 
               onClick={handleScrollToProjects}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="bg-primary text-dark font-bold px-6 py-3 md:px-8 md:py-4 border-2 border-dark shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {t.hero.cta_work} <ChevronRight size={20} />
-            </a>
-            <a 
+            </motion.a>
+            <motion.a 
               href="#" 
               onClick={handleResumeClick}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="bg-white hover:bg-gray-50 text-dark font-bold px-6 py-3 md:px-8 md:py-4 border-2 border-dark shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all flex items-center justify-center gap-2"
             >
               <Download size={20} />
               {t.hero.cta_cv}
-            </a>
+            </motion.a>
           </div>
 
           {/* 4. Competence Signals (Marquee) */}

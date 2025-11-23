@@ -181,7 +181,6 @@ const PROJECTS_EN: Project[] = [
   },
   {
     title: 'PLC-Resident Predictive Maintenance',
-    subtitle: 'Technical Documentation',
     category: 'Automation',
     status: 'Completed',
     shortDescription: 'A lightweight, deterministric predictive maintenance system for pneumatic cylinders & motors running entirely on S7-1500 (No PC/Cloud required).',
@@ -218,7 +217,7 @@ const PROJECTS_EN: Project[] = [
       'FB_OnlineStats_Welford & FB_CUSUM (Analytics)'
     ],
     links: [
-      { label: 'View Documentation', url: 'https://github.com', type: 'github' }
+      { label: 'View Full Project', url: 'https://github.com', type: 'github' }
     ]
   }
 ];
@@ -323,7 +322,6 @@ const PROJECTS_FR: Project[] = [
   },
   {
     title: 'Maintenance Prédictive Embarquée (PLC)',
-    subtitle: 'Documentation Technique',
     category: 'Automation',
     status: 'Terminé',
     shortDescription: 'Système de maintenance prédictive déterministe pour vérins pneumatiques et moteurs exécuté entièrement sur S7-1500 (Sans PC/Cloud).',
@@ -360,7 +358,7 @@ const PROJECTS_FR: Project[] = [
       'FB_OnlineStats_Welford & FB_CUSUM (Analytique)'
     ],
     links: [
-      { label: 'Voir Documentation', url: 'https://github.com', type: 'github' }
+      { label: 'Voir Projet Complet', url: 'https://github.com', type: 'github' }
     ]
   }
 ];

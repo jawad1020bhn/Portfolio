@@ -1,7 +1,10 @@
+
+
 import React from 'react';
 import Section from './ui/Section';
 import { Mail, Linkedin, ArrowRight } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
+import { motion } from 'framer-motion';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
@@ -43,24 +46,28 @@ const Contact: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
-          <a 
+          <motion.a 
             href="mailto:bahaa.gotai@gmail.com"
-            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-dark text-white px-8 py-4 font-bold text-lg border-2 border-dark hover:bg-gray-800 hover:shadow-lg hover:-translate-y-1 transition-all shadow-neo group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-dark text-white px-8 py-4 font-bold text-lg border-2 border-dark hover:bg-gray-800 hover:shadow-lg transition-all shadow-neo group"
           >
             <Mail size={22} />
             <span>{t.contact.btn_email}</span>
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-          </a>
+          </motion.a>
           
-          <a 
+          <motion.a 
             href="https://linkedin.com" // Replace with actual LinkedIn
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-dark px-8 py-4 font-bold text-lg border-2 border-dark hover:bg-gray-50 hover:-translate-y-1 transition-all shadow-neo"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-dark px-8 py-4 font-bold text-lg border-2 border-dark hover:bg-gray-50 transition-all shadow-neo"
           >
             <Linkedin size={22} />
             <span>LinkedIn</span>
-          </a>
+          </motion.a>
         </div>
 
         <div className="mt-8 text-sm font-mono text-gray-500">

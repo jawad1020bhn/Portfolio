@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { RESUME_URL_FR } from '../constants';
 import { Menu, X, Download, MessageSquare, Languages } from 'lucide-react';
@@ -92,31 +93,37 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="flex gap-3 items-center">
-             <button
+             <motion.button
                onClick={toggleLanguage}
+               whileHover={{ scale: 1.05, rotate: 2 }}
+               whileTap={{ scale: 0.95 }}
                className="flex items-center gap-1 font-mono font-bold text-sm border-2 border-dark px-2 py-2 bg-white shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all"
                aria-label="Toggle Language"
              >
                <Languages size={16} />
                <span>{language === 'en' ? 'FR' : 'EN'}</span>
-             </button>
+             </motion.button>
 
-             <a 
+             <motion.a 
               href="#"
               onClick={handleResumeClick}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="bg-white text-dark font-bold font-mono px-4 py-2 border-2 border-dark shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all flex items-center gap-2"
             >
               <Download size={16} />
               <span>CV</span>
-            </a>
-            <a 
+            </motion.a>
+            <motion.a 
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="bg-secondary text-white font-bold font-mono px-6 py-2 border-2 border-dark shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all flex items-center gap-2"
             >
               <MessageSquare size={16} />
               {language === 'en' ? "Let's Talk" : "Discuter"}
-            </a>
+            </motion.a>
           </div>
         </div>
 

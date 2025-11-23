@@ -1,8 +1,10 @@
 
+
 import React from 'react';
 import Section from './ui/Section';
 import { Shield, Users, PenTool } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
+import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
@@ -30,22 +32,34 @@ const About: React.FC = () => {
           </p>
 
           {/* Value Props - "Safe Bets" */}
-          <div className="grid grid-cols-1 gap-4 mt-4">
-             <div className="flex items-center gap-4 p-4 border-2 border-gray-100 bg-paper rounded-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.1 }}
+            className="grid grid-cols-1 gap-4 mt-4"
+          >
+             <motion.div 
+               whileHover={{ scale: 1.02 }}
+               className="flex items-center gap-4 p-4 border-2 border-gray-100 bg-paper rounded-sm"
+             >
                 <PenTool className="text-primary" size={28} />
                 <div>
                   <h4 className="font-bold text-dark">{t.about.hands_on_title}</h4>
                   <p className="text-sm text-gray-600">{t.about.hands_on_desc}</p>
                 </div>
-             </div>
-             <div className="flex items-center gap-4 p-4 border-2 border-gray-100 bg-paper rounded-sm">
+             </motion.div>
+             <motion.div 
+               whileHover={{ scale: 1.02 }}
+               className="flex items-center gap-4 p-4 border-2 border-gray-100 bg-paper rounded-sm"
+             >
                 <Users className="text-secondary" size={28} />
                 <div>
                   <h4 className="font-bold text-dark">{t.about.operator_title}</h4>
                   <p className="text-sm text-gray-600">{t.about.operator_desc}</p>
                 </div>
-             </div>
-          </div>
+             </motion.div>
+          </motion.div>
         </div>
 
         {/* Education & Competence - The "Evidence" */}
