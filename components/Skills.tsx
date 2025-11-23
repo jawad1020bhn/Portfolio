@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Section from './ui/Section';
 import { SKILLS_DATA, CERTIFICATES } from '../constants';
@@ -207,7 +208,8 @@ const Skills: React.FC = () => {
                     <span className="text-xs font-mono text-gray-500 bg-gray-100 px-1">{t.about.pro}</span>
                   </div>
                   <div className="flex gap-1">
-                     {[1,2,3,4,5].map(i => <div key={i} className="w-1.5 h-5 bg-dark skew-x-[-12deg]"></div>)}
+                     {[1,2,3,4].map(i => <div key={i} className="w-1.5 h-5 bg-dark skew-x-[-12deg]"></div>)}
+                     <div className="w-1.5 h-5 bg-gray-200 skew-x-[-12deg]"></div>
                   </div>
                </div>
 
@@ -218,8 +220,7 @@ const Skills: React.FC = () => {
                     <span className="text-xs font-mono text-gray-500 bg-gray-100 px-1">{t.about.fluent}</span>
                   </div>
                   <div className="flex gap-1">
-                     {[1,2,3,4].map(i => <div key={i} className="w-1.5 h-5 bg-dark skew-x-[-12deg]"></div>)}
-                     <div className="w-1.5 h-5 bg-gray-200 skew-x-[-12deg]"></div>
+                     {[1,2,3,4,5].map(i => <div key={i} className="w-1.5 h-5 bg-dark skew-x-[-12deg]"></div>)}
                   </div>
                </div>
             </div>

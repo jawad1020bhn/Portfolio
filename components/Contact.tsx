@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Section from './ui/Section';
 import { Mail, Linkedin, ArrowRight } from 'lucide-react';
@@ -13,7 +11,14 @@ const Contact: React.FC = () => {
     const parts = text.split('*');
     return parts.map((part, index) => {
       if (index % 2 === 1) {
-        return <span key={index} className="text-secondary font-bold">{part}</span>;
+        return (
+          <span 
+            key={index} 
+            className="font-bold text-dark bg-primary/25 px-1 rounded-sm border-b-2 border-primary box-decoration-clone hover:bg-primary/50 transition-colors cursor-default"
+          >
+            {part}
+          </span>
+        );
       }
       return <span key={index}>{part}</span>;
     });

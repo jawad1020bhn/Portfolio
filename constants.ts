@@ -417,8 +417,8 @@ export const TRANSLATIONS: Record<Language, Content> = {
       lang_english: "English",
       lang_french: "French",
       native: "Native",
-      fluent: "Fluent",
-      pro: "Professional"
+      fluent: "C1 (Advanced)",
+      pro: "B2 (Intermediate)"
     },
     experience: {
       title: "Experience",
@@ -546,8 +546,8 @@ export const TRANSLATIONS: Record<Language, Content> = {
       lang_english: "Anglais",
       lang_french: "Français",
       native: "Natif",
-      fluent: "Courant",
-      pro: "Professionnel"
+      fluent: "C1 (Avancé)",
+      pro: "B2 (Intermédiaire)"
     },
     experience: {
       title: "Expérience",
