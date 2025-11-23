@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { RESUME_URL_FR } from '../constants';
 import { Menu, X, Download, MessageSquare, Languages } from 'lucide-react';
@@ -69,12 +67,27 @@ const Navbar: React.FC = () => {
         <a 
           href="#" 
           onClick={(e) => handleNavClick(e, '#')}
-          className={`font-sans font-bold text-xl md:text-2xl tracking-tighter flex flex-col leading-none group z-50 relative transition-opacity duration-300 ${
-            scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          className={`flex items-center gap-3 group z-50 relative transition-all duration-500 ${
+            scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
           }`}
         >
-          <span className="group-hover:text-primary transition-colors uppercase">Bahaa Eddine</span>
-          <span className="text-secondary uppercase">Gotai.</span>
+          {/* Logo Mark - Hidden on very small screens if needed, but keeps brand identity */}
+          <div className="relative hidden xs:block">
+            <div className="w-10 h-10 bg-dark text-white flex items-center justify-center font-bold font-mono text-xl border-2 border-dark relative z-10 group-hover:bg-primary group-hover:text-dark transition-colors">
+              B
+            </div>
+            <div className="absolute inset-0 bg-secondary translate-x-1 translate-y-1 border-2 border-dark z-0 group-hover:translate-x-0 group-hover:translate-y-0 transition-all"></div>
+          </div>
+
+          {/* Text Lockup */}
+          <div className="flex flex-col justify-center leading-none">
+             <span className="text-[10px] font-bold font-mono uppercase tracking-widest text-gray-500 group-hover:text-dark transition-colors">
+               Bahaa Eddine
+             </span>
+             <span className="text-2xl font-black font-sans uppercase tracking-tighter text-dark group-hover:text-primary transition-colors">
+               Gotai<span className="text-secondary group-hover:text-dark">_</span>
+             </span>
+          </div>
         </a>
 
         {/* Desktop Menu */}
